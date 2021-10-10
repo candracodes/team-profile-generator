@@ -88,4 +88,4 @@ The project is created using the following frameworks and libraries
 
 ## Licensing
 The project is made possible with the following licensing:
-- [MIT](LICENSE.txt)
+- [MIT](LICENSE)

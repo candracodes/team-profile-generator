@@ -77,7 +77,7 @@ THEN I exit the application, and the HTML is generated
 
 * This application should resemble the following screenshot and video walk-through:
 
-- ![Screenshot](./assets/screenshot.png)
+- ![Screenshot](./assets/screenshot.jpeg)
 - [Video Walkthrough](#)
 
 ## Frameworks

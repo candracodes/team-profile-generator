@@ -84,9 +84,9 @@
     <!-- START: container -->
     <div class="container">
       <!-- START: row -->
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 generateCardContainer">
 
-        <!-- START: col -->
+        <!-- START: MANAGER -->
         <div class="col">
           <!-- TEAM MEMBER START: MANAGER -->
           <div class="card shadow-sm">
@@ -98,15 +98,15 @@
                 <li class="list-group-item">Team Member: ${name}</li>
                 <li class="list-group-item">ID: ${ID}</li>
                 <li class="list-group-item">Email: <a href="mailto:${email}">${email}</a></li>
-                <li class="list-group-item">Phone: ${phone}</li>
+                <li class="list-group-item">Phone: ${officeNumber}</li>
               </ul>
             </div>
           </div>
           <!-- TEAM MEMBER END -->
         </div>
-        <!-- END: col -->
+        <!-- END: MANAGER -->
         
-        <!-- START: col -->
+        <!-- START: ENGINEER -->
         <div class="col">
           <!-- TEAM MEMBER START: ENGINEER -->
           <div class="card shadow-sm">
@@ -124,9 +124,9 @@
           </div>
           <!-- TEAM MEMBER END -->
         </div>
-        <!-- END: col -->
+        <!-- END: ENGINEER -->
 
-       <!-- START: col -->
+       <!-- START: INTERN -->
        <div class="col">
         <!-- TEAM MEMBER START: INTERN -->
         <div class="card shadow-sm">
@@ -144,7 +144,8 @@
         </div>
         <!-- TEAM MEMBER END -->
       </div>
-      <!-- END: col -->
+      <!-- END: INTERN -->
+
       </div>
       <!-- END: row -->
     </div>

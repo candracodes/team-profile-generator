@@ -14,23 +14,40 @@ const Engineer = require("./lib/engineer");
 const Intern = require("./lib/intern");
 
 // TODO: Create an empty array to access later
+const teamArray = []; 
 
 // TODO: Create prompts for adding a manager
 const addManager = () => {
     return inquirer
         .prompt([{
                 type: "input",
-                message: "What is the manager on this team?",
+                message: "Who is the manager on this team?",
                 name: "name",
+            },
+            {
+                type: "input",
+                message: "What is this manager's ID number?",
+                name: "id",
             },
             {
                 type: "input",
                 message: "What is the office number for this manager?",
                 name: "officeNumber",
-            }
+            },
+            {
+                type: "input",
+                message: "What is the manager's email address?",
+                name: "email",
+            },
+            
         ])
         .then(response => {
             console.log('response', response);
+            const  { name, id, officeNumber, email } = response; 
+            const manager = new Manager (name, id, email, officeNumber);
+    
+            teamArray.push(manager); 
+            console.log(manager); 
         });
 
 } // end addManager
@@ -41,3 +58,11 @@ const addManager = () => {
 
 // TODO: Call functions to initialize
 addManager();
+
+// TODO: BRAIN DUMP:
+/*
+    1. Does it make sense to add a series of promises and attach them to "addManager?"
+    2. Should I separate the prompts and start with addManager, and then only one other single constructor called addEmployee where I add interns, engineers, etc?
+    3. Is there a max # of employees I want to allow, and how do I escape out of this prompt cycle? I.e... after 1 manager, 1 intern, 1 engineer... do I add a boolean that says Add another employee yes/no?
+    
+*/

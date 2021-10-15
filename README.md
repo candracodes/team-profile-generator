@@ -13,7 +13,7 @@ This is a Node.js command-line application that takes in information about  soft
 
 ## URLs
 - [GitHub Repo URL](https://github.com/candracodes/team-profile-generator)
-- [URL](https://candracodes.github.io/team-profile-generator/)
+- [Video Walk-thru URL](#)
 
 ## Foreword
 
@@ -78,7 +78,7 @@ THEN I exit the application, and the HTML is generated
 
 * This application should resemble the following screenshot and video walk-through:
 
-- ![Screenshot](./assets/screenshot.png)
+![Screenshot](./assets/screenshot.png)
 - [Video Walkthrough](#)
 
 ## Frameworks

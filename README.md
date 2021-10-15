@@ -14,7 +14,7 @@ This is a Node.js command-line application that takes in information about  soft
 ## URLs
 - [GitHub Repo URL](https://github.com/candracodes/team-profile-generator)
 - [Video Walk-thru URL](https://watch.screencastify.com/v/tfZDm7TSHwqll95Ga7zy)
-- [Generated HTML URL](./dist/index.html)
+- [Generated HTML URL](https://candracodes.github.io/team-profile-generator/dist/index.html)
 
 ## Foreword
 

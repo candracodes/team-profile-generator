@@ -16,8 +16,6 @@ const Intern = require("./lib/intern");
 // TODO: Create an empty array to access later
 const teamArray = [];
 
-// TODO: Maybe I need to add a qualifying choices prommpt that says, "What type of employee do you want to add?"
-
 // TODO: Create prompts for adding a manager
 const addManager = () => {
     return inquirer
@@ -146,25 +144,25 @@ const writeFile = data => {
         if (err) {
             console.log(err);
             return;
-        // if there are no errors, indicate in the terminal that a page has been created
+            // if there are no errors, indicate in the terminal that a page has been created
         } else {
             console.log("Successful generation of HTML file!")
         }
     })
-}; 
+}; // end writeFile
 
 // TODO: Call the function to initialize all the moving parts
 addManager()
-  .then(addEmployee)
-  .then(teamArray => {
-    return generateHTML(teamArray);
-  })
-  .then(pageHTML => {
-    return writeFile(pageHTML);
-  })
-  .catch(err => {
- console.log(err);
-  });
+    .then(addEmployee)
+    .then(teamArray => {
+        return generateHTML(teamArray);
+    })
+    .then(pageHTML => {
+        return writeFile(pageHTML);
+    })
+    .catch(err => {
+        console.log(err);
+    });
 
 // TODO: BRAIN DUMP:
 /*

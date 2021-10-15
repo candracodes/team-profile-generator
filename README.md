@@ -13,7 +13,8 @@ This is a Node.js command-line application that takes in information about  soft
 
 ## URLs
 - [GitHub Repo URL](https://github.com/candracodes/team-profile-generator)
-- [Video Walk-thru URL](#)
+- [Video Walk-thru URL](https://watch.screencastify.com/v/tfZDm7TSHwqll95Ga7zy)
+- [Generated HTML URL](./dist/index.html)
 
 ## Foreword
 
@@ -79,13 +80,13 @@ THEN I exit the application, and the HTML is generated
 * This application should resemble the following screenshot and video walk-through:
 
 ![Screenshot](./assets/screenshot.png)
-- [Video Walkthrough](#)
+- [Video Walkthrough](https://watch.screencastify.com/v/tfZDm7TSHwqll95Ga7zy)
 
 ## Frameworks
 
 The project is created using the following frameworks and libraries
 
-- [Framework](#)
+- [Bootstrap](https://getbootstrap.com/)
 
 ## Licensing
 The project is made possible with the following licensing:

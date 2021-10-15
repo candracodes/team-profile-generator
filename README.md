@@ -18,9 +18,10 @@ This is a Node.js command-line application that takes in information about  soft
 ## Foreword
 
 - This application aims to accomplish the following:
-  - This application uses [Jest](https://www.npmjs.com/package/jest) for running the unit tests and [Inquirer](https://www.npmjs.com/package/inquirer) for collecting input from the user
-  - The application will be invoked by using the following command: `node index.js` 
-  - The application includes `Employee`, `Manager`, `Engineer`, and `Intern` classes. The tests for these classes (in the `_tests_` directory) ALL pass.
+  - The successful use of [Jest](https://www.npmjs.com/package/jest) for running the unit tests and [Inquirer](https://www.npmjs.com/package/inquirer) for collecting input from the user
+  - The successful initialization of the application by invoking by the following command: `node index.js` in the command line
+  - The successful inclusion of `Employee`, `Manager`, `Engineer`, and `Intern` classes. 
+  - The expectation of all tests for the associated classes (in the `tests` directory) to ALL pass.
 
 ## Usage
 
@@ -29,7 +30,7 @@ This is a Node.js command-line application that takes in information about  soft
 
 ```md
 .
-├── __tests__/             //jest tests
+├── tests/             //jest tests
 │   ├── Employee.test.js
 │   ├── Engineer.test.js
 │   ├── Intern.test.js
@@ -77,7 +78,7 @@ THEN I exit the application, and the HTML is generated
 
 * This application should resemble the following screenshot and video walk-through:
 
-- ![Screenshot](./assets/screenshot.jpeg)
+- ![Screenshot](./assets/screenshot.png)
 - [Video Walkthrough](#)
 
 ## Frameworks

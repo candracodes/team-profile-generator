@@ -14,7 +14,7 @@ const Engineer = require("./lib/engineer");
 const Intern = require("./lib/intern");
 
 // TODO: Create an empty array to access later
-const teamArray = []; 
+const teamArray = [];
 
 // TODO: Maybe I need to add a qualifying choices prommpt that says, "What type of employee do you want to add?"
 
@@ -33,41 +33,141 @@ const addManager = () => {
             },
             {
                 type: "input",
-                message: "What is the office number for this manager?",
-                name: "officeNumber",
-            },
-            {
-                type: "input",
                 message: "What is the manager's email address?",
                 name: "email",
             },
-            
+            {
+                type: "input",
+                message: "What is the office number for this manager?",
+                name: "officeNumber",
+            }
+
         ])
         .then(response => {
             console.log('response', response);
-            const  { name, id, officeNumber, email } = response; 
-            const manager = new Manager (name, id, email, officeNumber);
-    
-            teamArray.push(manager); 
-            console.log(manager); 
+            const {
+                name,
+                id,
+                officeNumber,
+                email
+            } = response;
+            const manager = new Manager(name, id, email, officeNumber);
+
+            teamArray.push(manager);
+            console.log(manager);
         });
 
 } // end addManager
 
-// TODO: Create prompts for adding an engineer
+// TODO: Create prompts for adding additional employees
+const addEmployee = () => {
+    return inquirer
+        .prompt([{
+                type: 'list',
+                name: 'role',
+                message: "Please select this employee's role",
+                choices: ['Engineer', 'Intern']
+            },
+            {
+                type: "input",
+                message: "What is this employee's name?",
+                name: "name",
+            },
+            {
+                type: "input",
+                message: "What is this employee's ID number?",
+                name: "id",
+            },
+            {
+                type: "input",
+                message: "What is the employee's email address?",
+                name: "email",
+            },
+            {
+                type: 'input',
+                name: 'github',
+                message: "Please enter this employee's github username.",
+                when: (input) => input.role === "Engineer",
 
-// TODO: Create prompts for adding an intern
+            },
+            {
+                type: 'input',
+                name: 'school',
+                message: "Please enter the name of this intern's school.",
+                when: (input) => input.role === "Intern",
 
-// TODO: (Maybe) Create a function that puts it all together, basically... calling on generateHTML, and using teamArray as a key in order to "pop" the proper template literals into the correct placement within the HTML
+            },
+            {
+                type: 'confirm',
+                name: 'addNewEmployee',
+                message: 'Would you like to add another employee?',
+                default: false
+            }
 
-// TODO: Call functions to initialize
-addManager();
+        ])
+        .then(response => {
+            console.log('response', response);
+            let {
+                name,
+                id,
+                email,
+                role,
+                github,
+                school,
+                addNewEmployee
+            } = response;
+            let employee;
+
+            if (role === "Engineer") {
+                employee = new Engineer(name, id, email, github);
+
+                console.log(employee);
+
+            } else if (role === "Intern") {
+                employee = new Intern(name, id, email, school);
+
+                console.log(employee);
+            }
+            teamArray.push(employee);
+
+            if (addNewEmployee) {
+                return addEmployee(teamArray);
+            } else {
+                return teamArray;
+            }
+        })
+
+}; // end addEmployee
+
+// TODO: Create function to generate HTML page through filesystem
+const writeFile = data => {
+    fs.writeFile('./dist/index.html', data, err => {
+        // check for errors
+        if (err) {
+            console.log(err);
+            return;
+        // if there are no errors, indicate in the terminal that a page has been created
+        } else {
+            console.log("Successful generation of HTML file!")
+        }
+    })
+}; 
+
+// TODO: Call the function to initialize all the moving parts
+addManager()
+  .then(addEmployee)
+  .then(teamArray => {
+    return generateHTML(teamArray);
+  })
+  .then(pageHTML => {
+    return writeFile(pageHTML);
+  })
+  .catch(err => {
+ console.log(err);
+  });
 
 // TODO: BRAIN DUMP:
 /*
-    1. Does it make sense to add a series of promises and attach them to "addManager?"
-    2. Should I separate the prompts and start with addManager, and then only one other single constructor called addEmployee where I add interns, engineers, etc?
-    3. Is there a max # of employees I want to allow, and how do I escape out of this prompt cycle? I.e... after 1 manager, 1 intern, 1 engineer... do I add a boolean that says Add another employee yes/no?
-    4: Don't forget to include a video walk through of the tests passing, as well as the creation of the generatedHTML
-    5. Don't forget to include the generated HTML page that will live in the dist folder
+    1. Don't forget to include a video walk through of the tests passing, as well as the creation of the generatedHTML
+    2. Don't forget to include the generated HTML page that will live in the dist folder
 */
